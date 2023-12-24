@@ -10,7 +10,9 @@ packages = [{include = "bd_course"}]
 python = "^3.12"
 django = "^5.0"
 psycopg2-binary = "^2.9.9"
-python-decouple = "^3.8"
+django-environ = "^0.11.2"
+pytils = "^0.4.1"
+pillow = "^10.1.0"
 
 
 [tool.poetry.group.dev.dependencies]

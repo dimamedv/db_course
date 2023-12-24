@@ -1,0 +1,10 @@
+<section>
+    <h2>Последние новости</h2>
+    {% for post in posts %}
+        <article>
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.summary }}</p>
+            <a href="{% url 'post_detail' post.id %}">Читать далее</a>
+        </article>
+    {% endfor %}
+</section>

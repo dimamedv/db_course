@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Клуб любителей раков</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+<header>
+    <h1>Добро пожаловать в Клуб Любителей Раков!</h1>
+    <nav>
+        <a href="{% url 'home' %}">
+            <img src="{% static 'images/logo.png' %}" alt="Логотип Клуба Любителей Раков">
+        </a>
+        <ul>
+            <li><a href="{% url 'home' %}">Главная</a></li>
+            {#            <li><a href="{% url 'members' %}">Участники</a></li>#}
+            {#            <li><a href="{% url 'documents' %}">Документы</a></li>#}
+            {#            <li><a href="{% url 'buy_crayfish' %}">Купить раков</a></li>#}
+        </ul>
+    </nav>
+</header>
+
+<main>
+    {% block content %}
+
+    {% endblock %}
+</main>
+
+
+<footer>
+    <p>&copy; 2023 Клуб Любителей Раков</p>
+</footer>
+</body>
+</html>
+

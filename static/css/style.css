@@ -1,0 +1,135 @@
+/* Основные стили */
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2ee; /* Песочный фон */
+    color: #333333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Сброс отступов для всех элементов */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Стили заголовка */
+header {
+    background-color: #ff4c4c; /* Красный цвет для заголовка */
+    color: white;
+    text-align: center;
+    width: 100%;
+    font-family: "Roboto", sans-serif;
+}
+
+header h1 {
+    padding: 10px; /* Отступ для текста внутри header */
+    margin: 0; /* Убираем внешний отступ, если он не нужен */
+}
+
+nav {
+    display: flex;
+    align-items: center; /* Выравнивание элементов по центру */
+    background-color: #3a7ca5; /* Морской цвет */
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a img {
+    height: 50px;
+}
+
+body {
+    padding-top: 70px;
+}
+
+nav ul {
+    list-style: none; /* Убираем маркеры списка */
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 10px; /* Добавляем отступы между элементами списка */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    padding: 10px 15px; /* Добавлено для лучшего визуального оформления */
+    display: block; /* Заставляет ссылку заполнять весь li */
+    border-radius: 5px; /* Слегка закругленные углы для эстетики */
+    transition: background-color 0.3s; /* Плавный переход цвета */
+}
+
+nav a:hover {
+    background-color: #29537b; /* Затемненный морской цвет при наведении */
+}
+
+/* Основной контент */
+main {
+    flex-grow: 1;
+    background-color: #e0f7fa; /* Светло-голубой цвет, напоминающий море */
+}
+
+/* Стили подвала */
+footer {
+    background-color: #333333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    height: 100%; /* Опционально, если .container является родительским для .club-container */
+}
+
+.club-container {
+    font-family: Arial, sans-serif;
+    width: 60%;
+    height: 100%;
+    padding: 20px;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.club-title {
+    color: #333;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    color: #555;
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+.club-text {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.contact-info {
+    font-style: italic;
+    margin-top: 20px;
+}
