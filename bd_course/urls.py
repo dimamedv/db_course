@@ -15,17 +15,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.http import HttpResponse
 from django.urls import path
 
 from authentication.views import ProfileUpdateView, ProfileDetailView, UserRegisterView, \
-    UserLogoutView, UserLoginView, home_view
-from club_members.views import index
+    UserLogoutView, UserLoginView, profiles_list
+from club_members.views import index, map_view, locations_list, news_list, news_detail, \
+    documents_list, upload_document, download_document, export_news_json, export_news_xml
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('', index,  name="home"),
+    path('', index, name="home"),
+    path('about/', index, name="about"),
 
     path('user/edit/', ProfileUpdateView.as_view(), name='profile_edit'),
     path('user/<str:slug>/', ProfileDetailView.as_view(), name='profile_detail'),
@@ -33,4 +34,15 @@ urlpatterns = [
     path('login/', UserLoginView.as_view(), name='login'),
     path('logout/', UserLogoutView.as_view(), name='logout'),
 
+    path('buy_crayfish/map/<int:location_id>/', map_view, name='buy_crayfish_map'),
+    path('locations/', locations_list, name='locations_list'),
+    path('profiles_list', profiles_list, name="profiles_list"),
+    path('news/', news_list, name='news_list'),
+    path('news/<int:pk>/', news_detail, name='news_detail'),
+    path('documents/', documents_list, name='documents_list'),
+    path('upload/', upload_document, name='upload_document'),
+    path('documents/download/<slug:slug>/', download_document, name='download_document'),
+
+    path('news/export/json/', export_news_json, name='export_news_json'),
+    path('news/export/xml/', export_news_xml, name='export_news_xml'),
 ]

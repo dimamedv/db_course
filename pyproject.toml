@@ -13,6 +13,10 @@ psycopg2-binary = "^2.9.9"
 django-environ = "^0.11.2"
 pytils = "^0.4.1"
 pillow = "^10.1.0"
+python-slugify = "^8.0.1"
+django-cron = "^0.6.0"
+yadisk = "^2.1.0"
+requests = "^2.31.0"
 
 
 [tool.poetry.group.dev.dependencies]

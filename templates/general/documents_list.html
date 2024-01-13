@@ -1,0 +1,22 @@
+{% extends 'general/base.html' %}
+
+{% block content %}
+    <div class="club-container">
+        <h1>Документы</h1>
+        {% if request.user.is_staff %}
+            <div class="upload-button-container">
+                <a href="{% url 'upload_document' %}" class="btn-upload">Загрузить документ</a>
+            </div>
+        {% endif %}
+        <div class="documents-list">
+            {% for document in documents %}
+                <div class="document-card">
+                    <h2>{{ document.title }}</h2>
+                    <a href="{% url 'download_document' document.slug %}" class="btn btn-download">Скачать</a>
+                </div>
+            {% empty %}
+                <p>Документы не найдены.</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Клуб любителей раков</title>
+    <link rel="icon" href="{% static 'images/logo.png' %}" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -18,9 +19,10 @@
         </a>
         <ul>
             <li><a href="{% url 'home' %}">Главная</a></li>
-            {#            <li><a href="{% url 'members' %}">Участники</a></li>#}
-            {#            <li><a href="{% url 'documents' %}">Документы</a></li>#}
-            {#            <li><a href="{% url 'buy_crayfish' %}">Купить раков</a></li>#}
+                        <li><a href="{% url 'news_list' %}">Новости</a></li>
+                        <li><a href="{% url 'profiles_list' %}">Участники</a></li>
+                        <li><a href="{% url 'documents_list' %}">Документы</a></li>
+                        <li><a href="{% url 'locations_list' %}">Купить раков</a></li>
         </ul>
     </nav>
 </header>

@@ -1,0 +1,24 @@
+{% extends 'general/base.html' %}
+
+{% block content %}
+    <div class="club-container">
+
+        <div class="news-container">
+            <h1>Новости</h1>
+            <div class="export-buttons">
+                <a href="{% url 'export_news_json' %}" class="btn">Выгрузить новости в JSON</a>
+                <a href="{% url 'export_news_xml' %}" class="btn">Выгрузить новости в XML</a>
+            </div>
+            {% for news_item in news %}
+                <div class="news-item">
+                    <h2><a href="{% url 'news_detail' news_item.pk %}">{{ news_item.title }}</a>
+                    </h2>
+                    <p>Опубликовано: {{ news_item.date_posted|date:"d M Y" }}</p>
+                    <p>{{ news_item.content|truncatewords:30 }}</p>
+                </div>
+            {% empty %}
+                <p>Новостей пока нет.</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

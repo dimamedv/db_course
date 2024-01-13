@@ -1,0 +1,15 @@
+{% extends "general/base.html" %}
+
+{% block content %}
+    <div class="club-container">
+        <h1>Профиль пользователя: {{ profile.user.username }}</h1>
+
+        <div class="profile-container">
+            <img src="{{ profile.get_avatar }}" alt="Аватар пользователя">
+            <div class="profile-info">
+                <p><strong>Информация о себе:</strong> {{ profile.bio }}</p>
+                <p><strong>Дата рождения:</strong> {{ profile.birth_date }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,6 +1,6 @@
-from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import FileExtensionValidator
+from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.urls import reverse
@@ -45,6 +45,12 @@ class Profile(models.Model):
         Ссылка на профиль
         """
         return reverse('profile_detail', kwargs={'slug': self.slug})
+
+    @property
+    def get_avatar(self):
+        if self.avatar:
+            return self.avatar.url
+        return f'https://ui-avatars.com/api/?size=150&background=random&name={self.slug}'
 
 
 @receiver(post_save, sender=User)

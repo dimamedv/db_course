@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'club_members.apps.ClubMembersConfig',
-    'authentication.apps.AuthenticationConfig'
+    'authentication.apps.AuthenticationConfig',
+    'django_cron',
 ]
 
 MIDDLEWARE = [
@@ -97,6 +98,12 @@ DATABASES = {
         'PORT': env('DB_PORT'),
     }
 }
+
+BACKUP_DIR = str(BASE_DIR) + "/backups"
+
+CRON_CLASSES = [
+    'services.backup.DatabaseBackupCronJob',
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

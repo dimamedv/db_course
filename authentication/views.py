@@ -2,6 +2,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.db import transaction
 from django.http import HttpResponse
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, UpdateView, CreateView
 
@@ -19,7 +20,7 @@ class ProfileDetailView(DetailView):
     """
     model = Profile
     context_object_name = 'profile'
-    template_name = 'authentication/profile_detail.html'
+    template_name = 'profiles/detail.html'
     queryset = model.objects.all().select_related('user')
 
     def get_context_data(self, **kwargs):
@@ -99,3 +100,8 @@ class UserLogoutView(LogoutView):
     Выход с сайта
     """
     next_page = 'home'
+
+
+def profiles_list(request):
+    profiles = Profile.objects.all()
+    return render(request, 'profiles/profiles_list.html', {'profiles': profiles})

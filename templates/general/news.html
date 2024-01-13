@@ -1,0 +1,13 @@
+{% extends 'general/base.html' %}
+
+{% block content %}
+    <div class="club-container">
+        <div class="news-detail-container">
+            <h1>{{ news_item.title }}</h1>
+            <p class="news-date">Опубликовано: {{ news_item.date_posted|date:"d M Y" }}</p>
+            <div class="news-content">
+                {{ news_item.content|linebreaks }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

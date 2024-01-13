@@ -1,0 +1,18 @@
+{% extends 'general/base.html' %}
+
+{% block content %}
+    <div class="club-container">
+        <h1 class="locations-title">Точки продажи раков</h1>
+        <ul class="locations-list">
+            {% for location in locations %}
+                <li>
+                    <a href="{% url 'buy_crayfish_map' location.id %}">
+                        {{ location.header }} - {{ location.description|truncatechars:50 }}
+                    </a>
+                </li>
+            {% empty %}
+                <li>Точки продажи не найдены.</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

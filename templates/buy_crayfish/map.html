@@ -1,0 +1,35 @@
+{% extends "general/base.html" %}
+
+{% block content %}
+    <div class="club-container">
+        <div class="location-info">
+            <h2>Информация о точке</h2>
+            <p>Пользователь: {{ location.user.username }}</p>
+            <h3>{{ location.header }}</h3>
+            <p>{{ location.description }}</p>
+        </div>
+
+        <!-- Блок для карты -->
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+
+        <script src="https://api-maps.yandex.ru/2.1/?apikey=f280e10a-13c8-4853-8308-7906a7989633&lang=ru_RU" type="text/javascript"></script>
+        <script type="text/javascript">
+            ymaps.ready(init);
+
+            function init() {
+                var myMap = new ymaps.Map("map", {
+                    center: [{{ location.latitude }}, {{ location.longitude }}],
+                    zoom: 10
+                });
+
+                var myPlacemark = new ymaps.Placemark([{{ location.latitude }}, {{ location.longitude }}], {
+                    hintContent: '{{ location.header }}',
+                });
+
+                myMap.geoObjects.add(myPlacemark);
+            }
+        </script>
+    </div>
+{% endblock %}
